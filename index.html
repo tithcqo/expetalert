@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirecting...</title>
+  <title>Redirecting to ExPET Alert...</title>
   <script>
     window.onload = function() {
       // Get URL parameters
       var urlParams = new URLSearchParams(window.location.search);
-      var reference = urlParams.get('reference');
-      var status = urlParams.get('status');
+      var reference = urlParams.get('reference') || urlParams.get('trxref');
       
       // Construct the deep link URL
-      var deepLink = 'expetalert://expetalert.com/paystack/callback?reference=' + reference + '&status=' + status;
+      var deepLink = 'expetalert://expetalert.com/paystack/callback?reference=' + (reference || '');
+      
+      // Log the deep link (for debugging)
+      console.log('Redirecting to: ' + deepLink);
       
       // Redirect to the deep link
       window.location.href = deepLink;
+      
+      // Fallback for mobile browsers that don't support custom URL schemes
+      setTimeout(function() {
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.expet.xphiz';
+      }, 500);
     }
   </script>
 </head>
 <body>
-  <p>Redirecting to ExpetAlert app...</p>
+  <p>Redirecting to ExPET Alert app... If you're not redirected, <a href="https://play.google.com/store/apps/details?id=com.expet.xphiz">click here to download the app</a>.</p>
 </body>
 </html>
