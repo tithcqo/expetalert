@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function() {
+      // Get URL parameters
+      var urlParams = new URLSearchParams(window.location.search);
+      var reference = urlParams.get('reference');
+      var status = urlParams.get('status');
+      
+      // Construct the deep link URL
+      var deepLink = 'expetalert://expetalert.com/paystack/callback?reference=' + reference + '&status=' + status;
+      
+      // Redirect to the deep link
+      window.location.href = deepLink;
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting to ExpetAlert app...</p>
+</body>
+</html>
