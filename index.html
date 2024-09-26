@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting to ExPET Alert...</title>
-  <script>
-    window.onload = function() {
-      // Get URL parameters
-      var urlParams = new URLSearchParams(window.location.search);
-      var reference = urlParams.get('reference') || urlParams.get('trxref');
-      
-      // Construct the deep link URL
-      var deepLink = 'expetalert://expetalert.com/paystack/callback?reference=' + (reference || '');
-      
-      // Log the deep link (for debugging)
-      console.log('Redirecting to: ' + deepLink);
-      
-      // Redirect to the deep link
-      window.location.href = deepLink;
-      
-      // Fallback for mobile browsers that don't support custom URL schemes
-      setTimeout(function() {
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.expet.xphiz';
-      }, 500);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
     }
-  </script>
+    .success-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .success-container h1 {
+      color: #28a745;
+      font-size: 36px;
+    }
+    .success-container p {
+      font-size: 18px;
+      color: #333;
+    }
+    .success-container a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .success-container a:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to ExPET Alert app... If you're not redirected, <a href="https://play.google.com/store/apps/details?id=com.expet.xphiz">click here to download the app</a>.</p>
+  <div class="success-container">
+    <h1>Payment Completed Successfully!</h1>
+    <p>Thank you for your payment. Your transaction was successful.</p>
+    <a href="#">Continue</a>
+  </div>
 </body>
 </html>
