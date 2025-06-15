@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BirthSafe Video Call</title>
+    <script src="https://unpkg.com/@daily-co/daily-js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="call" style="width:100vw; height:100vh;"></div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const roomName = params.get("roomName");
+      const token = params.get("token");
+
+      const callFrame = window.DailyIframe.createFrame(document.getElementById("call"), {
+        url: `https://birthsafe.daily.co/${roomName}`,
+        token: token,
+        showLeaveButton: true,
+        showParticipantsBar: true
+      });
+
+      callFrame.join();
+    </script>
+  </body>
+</html>
