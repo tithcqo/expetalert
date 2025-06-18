@@ -1,23 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>BirthSafe Video Call</title>
-    <script src="https://unpkg.com/@daily-co/daily-js"></script>
-    <style> html, body { margin: 0; padding: 0; height: 100%; width: 100%; } </style>
-  </head>
-  <body>
-    <div id="call" style="width:100vw; height:100vh;"></div>
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const roomName = params.get("roomName");
-      const token = params.get("token");
-      const callFrame = window.DailyIframe.createFrame(document.getElementById("call"), {
-        url: `https://birthsafe.daily.co/${roomName}`,
-        token: token,
-        showLeaveButton: true,
-        showParticipantsBar: true
-      });
-      callFrame.join();
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – BirthSafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #C523D2;
+      --background: #f9f7fc;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #a71ea8;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🎉</div>
+    <h1>Thank You!</h1>
+    <p>
+      Your response has been received.<br />
+      We're excited to have you on this journey with BirthSafe.<br />
+      Stay tuned — more details are on their way to your inbox.
+    </p>
+    <a href="/" class="button">Return to Homepage</a>
+  </div>
+</body>
 </html>
