@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BirthSafe Video Call</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Extract the full Daily room URL with token from the query parameter
+    const params = new URLSearchParams(window.location.search);
+    const roomUrl = params.get('roomUrl');
+
+    if (!roomUrl) {
+      document.body.innerHTML = `
+        <div style="color: white; text-align: center; padding-top: 30vh;">
+          <h2>❌ Missing room URL</h2>
+          <p>Please provide a valid roomUrl query parameter.</p>
+        </div>`;
+    } else {
+      const iframe = document.createElement('iframe');
+      iframe.src = decodeURIComponent(roomUrl);
+      iframe.allow = "camera; microphone; fullscreen; display-capture";
+      iframe.allowFullscreen = true;
+      document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
